@@ -7,3 +7,5 @@ class Image(models.Model):
   image_description = models.TextField(max_length=200)
   image_location = models.ForeignKey()
   image_category = models.ForeignKey()
+  
+
