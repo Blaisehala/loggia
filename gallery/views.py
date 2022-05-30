@@ -8,7 +8,7 @@ def gallery(request):
   images= Image.objects.all()
   location= Location.objects.all()
   
-  return render(request, 'navbar.html')
+  return render(request, 'navbar.html', {'images': images} )
 
 
 
@@ -20,8 +20,8 @@ def search_image(request):
     title = 'Search'
     categories = Category.objects.all()
     locations = Location.objects.all()
-    if 'image_category' in request.GET and request.GET['image_category']:
-        search_term = request.GET.get('image_category')
+    if 'image' in request.GET and request.GET['image']:
+        search_term = request.GET.get('image')
         found_results = Image.search_by_category(search_term)
         message = f"{search_term}"
         print(search_term)
