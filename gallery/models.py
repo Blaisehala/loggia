@@ -7,18 +7,18 @@ from django.db import models
 
 #location 
 class Location(models.Model):
-  location_name = models.CharField(max_length=100)
+  location= models.CharField(max_length=100)
 
   def __str__(self):
-    return self.location_name
+    return self.location
 
 
 #Category
 class Category(models.Model):
-  category_name = models.CharField(max_length=100)
+  category= models.CharField(max_length=100)
 
   def __str__(self):
-    return self.category_name
+    return self.category
 
 
 
@@ -26,8 +26,11 @@ class Category(models.Model):
 #Image
 
 class Image(models.Model):
+  image_att =models.ImageField(upload_to = 'images/',blank=True, null=True)
   image_name = models.CharField(max_length=100)
   image_description = models.TextField(max_length=200)
+  category = models.ForeignKey(Category,on_delete=models.DO_NOTHING, blank=True,null=True)
+  location= models.ForeignKey(Location,on_delete=models.DO_NOTHING, blank=True, null=True)
   
   def __str__(self):
     return self.image_name
@@ -36,8 +39,8 @@ class Image(models.Model):
     self.save()
 
   @classmethod
-  def search_by_category(cls,image_category):
-        images = Image.objects.filter(image_category__category_name__icontains=image_category)
+  def search_by_category(cls,search_term):
+        images = cls.objects.filter(category__category=search_term)
         return images
         
 
