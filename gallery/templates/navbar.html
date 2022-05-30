@@ -14,61 +14,92 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
 </head>
 
 <body>
   <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-      <div class="container">
-        <a class="navbar-brand mr-4" href="/"><img src="" alt="" height="30px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggle">
-          <div class="navbar-nav mr-auto">
-            <a class="ttt nav-item nav-link" href="">Home</a>
+    <nav class="navbar navbar-expand-lg">
+      <a class="ttt navbar-brand" href="#">About LOGGIA</a>
+      <button class="nvb navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
-            <a class="ttt nav-item nav-link" href="">Images</a>
-
-          </div>
-          <!-- Navbar Right Side -->
-          <div class="navbar-nav">
-
-          </div>
-        </div>
+         
+          <li class="nav-item">
+            <a class="ttt nav-link" href="#"><i class="fa-brands fa-github"></i></a>
+            
+          </li>
+          
+        </ul>
       </div>
-      <form class="navbar-form" role="search" action="{% url 'search_image' %}">
-
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search Image" name="image">
-          <div class="input-group-btn">
-            <button class="btn btn-outline-info" type="submit"><i class="glyphicon glyphicon-search"></i>search</button>
-          </div>
-        </div>
-
-      </form>
     </nav>
   </header>
-<br>
+  
 
-  <div class="container wrap mt-5 p-5">
+
+    <div class="banner text-center">
+      <div class="cover">
+        <div class="container image">
+          <h2 class="lll" id="category"> LOGGIA </h2>
+          <p class="ltt">Powerd by creators everywhere!</p>
+          <form class="form" role="search" action="{% url 'search_image' %}">
+
+            <div class="input-group text-center">
+              <input type="text" class="form-control" placeholder=" Search by category" name="image" >
+              <div class="input-group-btn">
+                <button class="btn btn-dark" type="submit"><i
+                    class="glyphicon glyphicon-search"></i>search</button>
+              </div>
+
+            </div>
+
+
+            <small class="banner2">Trending categories: art, food, habitat, soul...</small>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid" wrap mt-5 p-5">
     <!-- Looping through images -->
     <div class="row">
       {% for image in images %}
       <!-- displaying images -->
       <div class="col-xs-6 col-sm-6  col-md-4 col-lg-3 ">
-        <div class="portfolio-wrap ">
-          <div class="portfolio-wrap hovereffect">
+        <div class="">
+          <div class="">
 
-            <img src="{{image.image_att.url}}" href="#" class="image" data-toggle="modal" data-target="#{{image.id}}"
-              alt="Image" height="500px">
-              <hr>
-              <p style='color:grey; text-decoration:none'> {{image.image_name}}</p><span
-              style='color:rgb(122, 162, 236); text-decoration:none; '> More...</span> </a>
+            <img src="{{image.image_att.url}}" href="#" class="image p-2 " data-toggle="modal"
+              data-target="#myModal{{ forloop.counter }}" alt="Image" height="500px">
 
-          
+            <hr>
 
+            <a style='color:grey; text-decoration:none; ' data-toggle="modal"
+              data-target="#myModal{{ forloop.counter }}">{{image.image_name}} <span
+                style='color:rgb(122, 162, 236); text-decoration:none; '></span> </a>
+
+            <hr>
           </div>
         </div>
       </div>
@@ -76,11 +107,80 @@
     </div>
 
 
-   
+
     {% endfor %}
+  </div>
 
-  
 
+
+
+  <!-- Modal -->
+  {% for image in images %}
+  <div id="myModal{{ forloop.counter }}" class="modal fade" role="dialog" data-target="{{image.id}}">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-9 col-lg-9">
+              <a href="/"><img id="" src="{{image.image_att.url}}" class="img-thumbnail" alt="Image"
+                  style="cursor:pointer"></a>
+
+            </div>
+
+            <div class="col-md-3">
+              <h5 class="kode">Location</h5>
+              <hr>
+              <p>{{image.location}}</p>
+              <h5 class="kode">Category</h5>
+              <hr>
+              <p>{{image.category}}</p>
+            </div>
+
+            <div class="p-5">
+              <h2 class="kode">{{image.image_name}}</h2>
+              <p class="">{{image.image_description}}</p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark btn-sm">Copy Link</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+
+
+
+
+
+
+
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+  </script>
 
 </body>
 

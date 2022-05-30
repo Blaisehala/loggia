@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Montserrat&family=Open+Sans:ital,wght@1,300&family=Rowdies&display=swap');
 
 
-.bg-steel {
+.navbar {
   background-color: #052135;
 
 }
@@ -9,6 +9,24 @@
 
  .ttt{
 
+  font-size: 10px;
+  color:aliceblue;
+  font-family: "Fredoka One", Sans-serif;
+  
+  /* text-shadow: 4px 10px 2px rgb(53 66 109 / 15%); */
+
+} 
+
+
+
+.ltt{
+  font-size: 30px;
+  color:aliceblue;
+  font-family: "Fredoka One", Sans-serif;
+  
+}
+
+.kode{
   font-size: 30px;
   color: black;
   font-family: "Fredoka One", Sans-serif;
@@ -16,6 +34,25 @@
   font-weight: 400;
   line-height: 48px;
   letter-spacing: 0px;
-  /* text-shadow: 4px 10px 2px rgb(53 66 109 / 15%); */
 
-} 
+}
+
+.banner {
+color: aliceblue;
+background-image: url(https://images.unsplash.com/photo-1653875872782-fe4b3162065e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60);
+height:50vh;
+background-repeat: no-repeat;
+background-size: cover;
+font-size: 30px;
+  
+
+}
+
+
+.nvb{
+  color: aliceblue;
+}
+
+.banner2{
+  font-size: 12px;
+}
