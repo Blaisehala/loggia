@@ -2,7 +2,7 @@
 
 
 .bg-steel {
-  background-color: #25a6ff;
+  background-color: #052135;
 
 }
 
@@ -16,6 +16,6 @@
   font-weight: 400;
   line-height: 48px;
   letter-spacing: 0px;
-  text-shadow: 4px 10px 2px rgb(53 66 109 / 15%);
+  /* text-shadow: 4px 10px 2px rgb(53 66 109 / 15%); */
 
 } 
