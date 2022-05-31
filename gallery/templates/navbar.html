@@ -81,7 +81,7 @@
 
 
 
-  <div class="container" >
+  <div class="container-fluid" wrap mt-5 p-5">
     <!-- Looping through images -->
     <div class="row">
       {% for image in images %}
@@ -90,7 +90,7 @@
         <div class="">
           <div class="">
 
-            <img src="{{image.image_att.url}}" href="#" class="image  " data-toggle="modal"
+            <img src="{{image.image_att.url}}" href="#" class="image p-2 " data-toggle="modal"
               data-target="#myModal{{ forloop.counter }}" alt="Image" height="500px">
 
             <hr>
