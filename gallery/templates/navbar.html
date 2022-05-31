@@ -24,49 +24,49 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-lg">
       <a class="ttt navbar-brand" href="#">About LOGGIA</a>
-      <button class="nvb navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="nvb navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-
+         
           <li class="nav-item">
             <a class="ttt nav-link" href="#"><i class="fa-brands fa-github"></i></a>
-
+            
           </li>
-
+          
         </ul>
       </div>
     </nav>
   </header>
+  
 
 
+    <div class="banner text-center">
+      <div class="cover">
+        <div class="container image">
+          <h2 class="lll" id="category"> LOGGIA </h2>
+          <p class="ltt">Powerd by creators everywhere!</p>
+          <form class="form" role="search" action="{% url 'search_image' %}">
 
-  <div class="banner text-center">
-    <div class="cover">
-      <div class="container image">
-        <h2 class="lll" id="category"> LOGGIA </h2>
-        <p class="ltt">Powerd by creators everywhere!</p>
-        <form class="form" role="search" action="{% url 'search_image' %}">
+            <div class="input-group text-center">
+              <input type="text" class="form-control" placeholder=" Search by category" name="image" >
+              <div class="input-group-btn">
+                <button class="btn btn-dark" type="submit"><i
+                    class="glyphicon glyphicon-search"></i>search</button>
+              </div>
 
-          <div class="input-group text-center">
-            <input type="text" class="form-control" placeholder=" Search by category" name="image">
-            <div class="input-group-btn">
-              <button class="btn btn-dark" type="submit"><i class="glyphicon glyphicon-search"></i>search</button>
             </div>
 
-          </div>
 
+            <small class="banner2">Trending categories: art, food, habitat, soul...</small>
 
-          <small class="banner2">Trending categories: art, food, habitat, soul...</small>
+          </form>
 
-        </form>
-
+        </div>
       </div>
     </div>
-  </div>
 
 
 
@@ -158,14 +158,8 @@
 
 
         <div class="modal-footer">
-          <button class="btn btn-info" type="button" onclick="getURL();" id='blaise'
-            style="font-family: 'Kaushan Script';">Get Link</button>
-          <a id="url"></a>
-
-
-          <button type="button" id="baton" class="btn btn-outline-dark btn-sm"
-            onclick="copyToClipboard('#url')"></button>
-          <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal ">Close</button>
+          <button type="button" class="btn btn-outline-dark btn-sm">Copy Link</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close</button>
         </div>
       </div>
 
@@ -174,12 +168,8 @@
   {% endfor %}
 
 
-  <script>
-function getURL(){
-      document.getElementById("url").innerHTML = window.location.href;
-      document.getElementById("baton").innerHTML = "Copy link";
-}
-  </script>
+
+
 
 
 
