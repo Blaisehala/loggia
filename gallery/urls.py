@@ -1,12 +1,13 @@
-from django.urls import re_path as  url
+from django.urls import path 
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 from . import views
 
 urlpatterns=[
-    url('^$',views.gallery,name = 'gallery'),
-    url('^search/', views.search_image, name='search_image')
+    path ('',views.gallery,name = 'gallery'),
+    path ('search/', views.search_image, name='search_image')
 
 ]
 
