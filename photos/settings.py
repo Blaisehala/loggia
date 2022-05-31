@@ -20,23 +20,22 @@ import cloudinary.uploader
 import cloudinary.api
 
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-MODE = config("MODE", default="dev")
-# SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-
-
-
 # add configs
 cloudinary.config(
     cloud_name='dnitcpr5j',
     api_key='626861449813592',
     api_secret='NpzaDec5IN6mLwumwyjEHtdKJfE'
 )
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MODE = config("MODE", default="dev")
+# SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+
 
 # development
 if config('MODE') == "dev":
