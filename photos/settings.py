@@ -15,6 +15,14 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import environ
+
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+
 
 #cloudinary python classes
 import cloudinary
@@ -31,7 +39,7 @@ cloudinary.config(
 
 
 MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('123456')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
