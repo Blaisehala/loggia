@@ -75,7 +75,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-%fz@q5&=hkv&zmm^8z+h@12254_^(26#t6@t9+mi=s6&0j#ej#'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -86,8 +87,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap4',
-    'django_forms_bootstrap',
     'gallery.apps.GalleryConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -95,7 +94,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary'
+    'cloudinary',
+    'bootstrap4',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
